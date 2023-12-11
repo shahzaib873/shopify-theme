@@ -49,8 +49,11 @@
         {%- endif -%}
       </div>
     </div>
-    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-            <button class="quantity__button no-js-hidden" name="minus" type="button">
+    
+  {%- endfor -%}
+{%- endif -%}
+                  <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                       </span>
@@ -78,6 +81,4 @@
                       </span>
                       {% render 'icon-plus' %}
                     </button>
-      </quantity-input>
-  {%- endfor -%}
-{%- endif -%}
+                  </quantity-input>
