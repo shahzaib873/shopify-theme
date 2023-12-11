@@ -1,0 +1,110 @@
+{% comment %}
+   custom-product.liquid
+   This is a custom product page template using Shopify 2.0 features.
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Custom Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Custom Product Settings"
+    },
+    {
+      "type": "text",
+      "id": "header_content",
+      "label": "Header Content",
+      "default": "Custom Product"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Desktop Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "collage",
+          "label": "Collage"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "Featured Image Height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt to Image"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "adapt",
+      "info": "For best results, use an image with a 3:2 aspect ratio. [Learn more](https:\/\/help.shopify.com\/manual\/shopify-admin\/productivity-tools\/image-editor#understanding-image-aspect-ratio)"
+    },
+    {
+      "type": "text",
+      "id": "custom_content",
+      "label": "Custom Content",
+      "default": "Customize this section..."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign product = section.settings.product %}
+
+<div class="custom-product">
+  <h1>{{ section.settings.header_content }}</h1>
+  
+  <!-- Product Display and Variations -->
+  <div class="product-details">
+    <!-- Display product details using Liquid -->
+    <!-- Add variations selection (size, color, etc.) -->
+  </div>
+  
+  <!-- Cart Functionality with JavaScript -->
+  <button onclick="addToCart('{{ product.id }}', 1)">Add to Cart</button>
+  
+  <!-- Cart Display -->
+  <div class="cart">
+    <!-- Display cart items and functionalities -->
+  </div>
+  
+  <!-- Customizable Content -->
+  <div class="custom-content">
+    {{ section.settings.custom_content | escape }}
+  </div>
+</div>
+
+<script>
+  // JavaScript/TypeScript Functions
+  function addToCart(productId, quantity) {
+    // Implement the logic to add the product to the cart using Shopify's API
+  }
+  
+  // Implement other cart functionalities using JavaScript/TypeScript
+</script>
+
